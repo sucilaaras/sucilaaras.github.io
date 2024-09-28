@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>Profil Saya</title>
+    <style>
+        body {
+            background-color: #e9a1a1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .profile-card {
+            background-color: white;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 11px 10px 5px -3px rgba(0,0,0,0.22);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+        }
+        .profile-card img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .profile-card h1 {
+            font-size: 24px;
+            margin: 15px 0 5px;
+        }
+        .profile-card a {
+            text-decoration: none;
+            color: #d5aeb9;
+            font-weight: bold;
+        }
+        .profile-card a:hover {
+            color: #a43a6b;
+        }
+
+        .p-content {
+            display: flex;
+            flex-direction: column;
+            margin: 2px;
+        }
+        p {
+            margin: 2px;
+            color: black;
+            text-decoration: none;
+        }
+        .info {
+            margin-top: 10px;
+        }
+        .info p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        #datetime {
+            margin-top: 15px;
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <img src="profile.jpg" alt="Foto Profil">
+        <h1>Suci Larasati</h1>
+
+        <div class="info">
+            <p>NIM: 1202223204</p>
+            <p>Kelas: SI4606</p>
+        </div>
+
+        <p>Reach me out:</p>
+        <div class="p-content"> 
+            <p>on Instagram <a href="https://instagram.com/sucilaaras" target="_blank">@sucilaaras</a></p>
+            <p>on LinkedIn <a href="https://linkedin.com/in/sucilaaras" target="_blank">@sucilaaras</a></p>
+        </div>
+
+        <div id="datetime"></div>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const timeString = now.toLocaleTimeString();
+            const dateString = now.toLocaleDateString('id-ID', options);
+            document.getElementById('datetime').textContent = `${dateString}, ${timeString}`;
+        }
+
+        setInterval(updateDateTime, 1000);  // Update every second
+        updateDateTime();  // Call the function immediately to show the time on load
+    </script>
+
+</body>
+</html>
